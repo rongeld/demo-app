@@ -31,7 +31,6 @@ pipeline {
      stage('Deploy') {
       steps {
         echo 'Deploying to server...'
-        echo "Deploying with ${SERVER_CREDENTIALS.username} ${SERVER_CREDENTIALS.password}"
         echo "Deploying version ${params.param1}"
       }
     }
