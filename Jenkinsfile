@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('Build') {
       when {
-          edpression {
+          expression {
             params.param1 == "default"
           }
       }
