@@ -12,7 +12,9 @@ pipeline {
   stages {
     stage('Build') {
       when {
-        params.param1 == "default"
+          edpression {
+            params.param1 == "default"
+          }
       }
       steps {
         echo 'Building an app...'
