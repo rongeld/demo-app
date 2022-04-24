@@ -24,16 +24,14 @@ pipeline {
      stage('Test') {
        
       steps {
-        withCredentials([usernamePassword(credentials: 'github-creds', usernameVariable: 'USER', passwordVariable: 'PWD')]) {
-          echo "some stuff ${USER} ${PWD}"
-        }
+        
         echo 'Testing...'
       }
     }
      stage('Deploy') {
       steps {
         echo 'Deploying to server...'
-        echo "Deploying with ${SERVER_CREDENTIALS}"
+        echo "Deploying with ${SERVER_CREDENTIALS.username} ${SERVER_CREDENTIALS.password}"
         echo "Deploying version ${params.param1}"
       }
     }
