@@ -24,7 +24,7 @@ pipeline {
      stage('Test') {
        
       steps {
-        withCredentials([usernamePassword(credentials: 'github-creds', usernameVariable: USER, passwordVariable: PWD)]) {
+        withCredentials([usernamePassword(credentials: 'github-creds', usernameVariable: 'USER', passwordVariable: 'PWD')]) {
           echo "some stuff ${USER} ${PWD}"
         }
         echo 'Testing...'
