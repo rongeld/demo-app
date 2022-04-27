@@ -13,7 +13,7 @@ pipeline {
     stage('increment version') {
       steps {
         script {
-           def version = sh(returnStdout: true, script: "npm versionh")
+           def version = sh(returnStdout: true, script: "npm version")
             echo "Version is ${version}"
             def versionProps = readJSON text: version
             echo "Project version is ${versionProps['project-name']}"
