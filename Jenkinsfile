@@ -14,7 +14,7 @@ pipeline {
       steps {
         script {
           sh 'echo "version: $NEW_VERSION"'
-          def matcher = readFile('package.json') =~ '"version": "(.*?)"'    
+          def matcher = readFile('package.json') =~ '"version": "(.+)"'    
           sh 'echo "version: ${matcher[0][1]}" > package.json' 
         }
       }
