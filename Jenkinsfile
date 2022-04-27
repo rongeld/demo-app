@@ -1,5 +1,9 @@
 pipeline {
-  agent any
+   agent {
+        docker {
+          image 'node:10.11.0-alpine'
+        }
+     }
   parameters {
     string(name: "param1", defaultValue: "default", description: "param1 description")
     choice(name: "param2", choices: ["choice1", "choice2"])
