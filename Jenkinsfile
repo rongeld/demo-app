@@ -13,9 +13,10 @@ pipeline {
     stage('increment version') {
       steps {
         script {
-          sh 'echo "version: $NEW_VERSION"'
-          def matcher = readFile('package.json') =~ '"version": "(.+)"'    
-          sh 'echo "version: ${matcher[0][1]}" > package.json' 
+           def version = sh(returnStdout: true, script: "npm version")
+            echo "Version is ${version}"
+            def versionProps = readJSON text: version
+            echo "Project version is ${versionProps['project-name']}"
         }
       }
     }
