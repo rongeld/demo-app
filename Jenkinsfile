@@ -12,9 +12,11 @@ pipeline {
   stages {
     stage('increment version') {
       steps {
-        sh 'echo "version: $NEW_VERSION"'
-        def matcher = readFile('package.json') =~ /\"version\": \"([0-9.]+)\"/    
-        sh 'echo "version: ${matcher[0][1]}" > package.json' 
+        script {
+          sh 'echo "version: $NEW_VERSION"'
+          def matcher = readFile('package.json') =~ /\"version\": \"([0-9.]+)\"/    
+          sh 'echo "version: ${matcher[0][1]}" > package.json' 
+        }
       }
     }
     stage('Build') {
